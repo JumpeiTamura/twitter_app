@@ -8,10 +8,18 @@ class TweetController < ApplicationController
   def timeline
     redirect_to root_url unless session[:oauth_token]
     @tweets = @client.home_timeline(:count => 200)
+    @followers = @client.followers
   end
 
   def update
     @client.update(params[:text])
+    flash[:success] = '投稿しました！'
+    redirect_to action: :timeline
+  end
+
+  def dm
+    @client.create_direct_message(params[:scrname], params[:text])
+    flash[:success] = 'DMを送りました！'
     redirect_to action: :timeline
   end
 

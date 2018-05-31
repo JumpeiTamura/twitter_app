@@ -1,0 +1,5 @@
+<%= form_tag(post_tweet_path) do %>
+    <%= label_tag(:text, "投稿") %>
+    <%= text_field_tag(:text) %>
+    <%= submit_tag("ツイート") %>
+<% end %>

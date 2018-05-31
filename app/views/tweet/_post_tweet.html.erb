@@ -1,0 +1,15 @@
+<%= form_tag(post_tweet_path) do %>
+    <%= label_tag(:text, "投稿") %>
+    <%= text_area_tag(:text) %>
+    <%= submit_tag("ツイート") %>
+<% end %>
+
+<%= form_tag(dm_tweet_path) do %>
+    <%= label_tag(:text, "DM") %>
+    <%= text_area_tag(:text) %>
+    <%= label_tag(:scrname, "DM対象") %>
+    <% followers_list = @followers.map(&:name).zip @followers.map(&:screen_name) %>
+    <%= select_tag(:scrname, options_for_select(followers_list),
+		   include_blank: false) %>
+    <%= submit_tag("DMを送る") %>
+<% end %>

@@ -1,14 +1,18 @@
 <h1>Tweet#timeline</h1>
 <p>Find me in app/views/tweet/timeline.html.erb</p>
-<%= session[:oauth_token] %><br>
-<%= session[:oauth_token_secret] %>
 
-<%= @tweets.map(&:full_text) %>
+<%= flash[:success] %>
 
-<%= form_tag(post_tweet_path) do %>
-  <%= label_tag(:text, "投稿") %>
-  <%= text_field_tag(:text) %>
-  <%= submit_tag("ツイート") %>
+<%= render partial: 'post_tweet' %>
+
+<% @tweets.each do |tweet| %>
+    <%= tweet.text %><br>
+    <% if tweet.media? %>
+        <% tweet.media.each do |media| %>
+            <%= image_tag(media.media_url_https, width: '320') %>
+        <% end %>
+	<br>
+    <% end %>
+    <%= "#{tweet.favorite_count}いいね　#{tweet.retweet_count}リツイート" %><br>
+
 <% end %>
-
-<%= debug params %>

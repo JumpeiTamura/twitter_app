@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get '/tweet', to: 'tweet#timeline'
   get 'signout_twitter', to: 'sessions#destroy'
   post '/tweet', to: 'tweet#update', as: 'post_tweet'
+  post '/tweet/dm', as: 'dm_tweet'
 
   #oauth routes
   get '/auth/:provider/callback', to: 'sessions#create'
