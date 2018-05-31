@@ -1,2 +1,14 @@
 <h1>Tweet#timeline</h1>
 <p>Find me in app/views/tweet/timeline.html.erb</p>
+<%= session[:oauth_token] %><br>
+<%= session[:oauth_token_secret] %>
+
+<%= @tweets.map(&:full_text) %>
+
+<%= form_tag(post_tweet_path) do %>
+  <%= label_tag(:text, "投稿") %>
+  <%= text_field_tag(:text) %>
+  <%= submit_tag("ツイート") %>
+<% end %>
+
+<%= debug params %>

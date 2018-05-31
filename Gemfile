@@ -8,6 +8,14 @@ end
 gem 'twitter'
 gem 'oauth'
 gem 'omniauth-twitter'
+
+gem 'pry-rails'
+gem 'pry-doc'
+gem 'pry-byebug'
+gem 'pry-stack_explorer'
+
+gem 'wdm', '>= 0.1.0' if Gem.win_platform?
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.6'
 # Use sqlite3 as the database for Active Record
@@ -30,8 +38,9 @@ gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
-gem 'bcrypt', '~> 3.1.7'
-
+#gem 'bcrypt', '~> 3.1.7'
+#gem 'bcrypt', '~> 3.1.11'
+#gem 'bcrypt-ruby', '3.1.1.rc1', :require => 'bcrypt'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
